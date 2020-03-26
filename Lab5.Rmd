@@ -1,0 +1,102 @@
+---
+title: "Lab 5"
+author: 'Rich Chu, Lorena Mancino'
+output: html_notebook
+---
+
+# Lab 5 Get Me out(lier) of Here!
+
+## Problem 0
+
+```{r}
+x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9)
+```
+
+
+## Problem 1
+
+```{r}
+quantile(x, 0.25)
+quantile(x, 0.75)
+```
+
+## Problem 2
+
+```{r}
+quartiles <- function(x){
+  first <- quantile(x, 0.25)
+  third <- quantile(x, 0.75)
+  list <- list(first, third, third - first)
+  names(list) <- c('First', 'Third', 'Interquartile_Range')
+  return(list)
+}
+quartiles(x)
+```
+
+## Problem 3
+According to Tukey's rules, the lower bound for outliers is -18.6625 and there are no values less than that, meaning there are no lower outliers in the set.
+According to Tukey's rules, the upper bound for outliers is 19.0375 and there is one value above than that, meaning that 28.7 is the only upper outliers in the set.
+
+## Problem 4
+
+```{r}
+tukey.outlier <- function(x){
+  q <- quartiles(x)
+  lower.bound <- q$First - (1.5 * q$Interquartile_Range)
+  upper.bound <- q$Third + (1.5 * q$Interquartile_Range)
+  
+  bool <- vector(length=length(x))
+  
+  for(i in 1:length(x)){
+    if(x[i] > upper.bound){
+        bool[i] <- TRUE
+      }
+    else if(x[i] < lower.bound){
+        bool[i] <- TRUE
+    }
+    else{
+      bool[i] <- FALSE
+    }
+  }
+  return(bool)
+}
+
+tukey.outlier(x)
+```
+
+## Problem 5
+
+```{r}
+test.tukey.outlier <- function(function(tukey.outlier(x))){
+  to <- tukey.outlier(x)
+  if(fun == to){
+    return(TRUE)
+  }
+  else{
+    return(FALSE)
+  }
+}
+test.tukey.outlier(fun= tukey.outlier)
+```
+
+## Problem 6
+
+
+
+## Problem 7
+
+
+
+## Problem 8
+
+
+
+## Problem 9
+
+
+
+## Problem 10
+
+
+## Problem 11
+
