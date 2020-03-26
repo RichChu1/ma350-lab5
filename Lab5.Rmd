@@ -67,16 +67,17 @@ tukey.outlier(x)
 ## Problem 5
 
 ```{r}
-test.tukey.outlier <- function(function(tukey.outlier(x))){
-  to <- tukey.outlier(x)
-  if(fun == to){
-    return(TRUE)
+test.tukey.outlier <- function(FUN= tukey.outlier){
+  calculated.output <- tukey.outlier(x)
+  
+  if(all((calculated.output == FUN) == TRUE)){
+    return(TRUE)    
   }
   else{
     return(FALSE)
   }
 }
-test.tukey.outlier(fun= tukey.outlier)
+test.tukey.outlier(tukey.outlier(x))
 ```
 
 ## Problem 6
