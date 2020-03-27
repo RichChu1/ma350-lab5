@@ -8,13 +8,13 @@ output: html_notebook
 
 ## Problem 0
 
-```{r}
-x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) # x is the given data set 
-```
+https://github.com/RichChu1/ma350-lab5
 
 ## Problem 1
 
 ```{r}
+x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) # x is the given data set 
+
 quantile(x, 0.25) # calculates the first quartile of x
 quantile(x, 0.75) # calculates the third quartile of x
 ```
