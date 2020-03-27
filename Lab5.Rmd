@@ -82,22 +82,110 @@ test.tukey.outlier(tukey.outlier(x))
 
 ## Problem 6
 
+```{r}
+x2 <- -x
 
+tukey.outlier(x2)
+```
+The only data value that should be an outlier in -x is the eleventh term (-28.7). This makes sense because -x is just a reflection of x, so the outlier bounds are just flipped. 
 
 ## Problem 7
 
+```{r}
+
+test.tukey.outlier <- function(FUN= tukey.outlier){
+  calculated.output <- tukey.outlier(x)
+  negative.output <- tukey.outlier(-x)
+  return <- vector(length=2)
+  
+  if(all((calculated.output == FUN) == TRUE)){
+    return[1]=TRUE    
+  }
+  else{
+    return[1]=FALSE
+  }
+  
+    if(all((negative.output == FUN) == TRUE)){
+    return[2]=TRUE    
+  }
+  else{
+    return[2]=FALSE
+  }
+  return(return)
+}
+
+```
 
 
 ## Problem 8
 
+```{r}
+test.tukey.outlier(tukey.outlier(x))
+```
 
 
 ## Problem 9
 
+```{r}
+x3 <- 0.1*x
 
+tukey.outlier(x3)
+```
+The only data value that should be an outlier in 0.1*x is the eleventh term (2.87). This makes sense because it's scaled down. 
 
 ## Problem 10
 
+```{r}
+test.tukey.outlier <- function(FUN= tukey.outlier){
+  calculated.output <- tukey.outlier(x)
+  negative.output <- tukey.outlier(-x)
+  scaled.down.output <- tukey.outlier(0.1*x)
+  return <- vector(length=3)
+  
+  if(all((calculated.output == FUN) == TRUE)){
+    return[1]=TRUE    
+  }
+  else{
+    return[1]=FALSE
+  }
+  
+    if(all((negative.output == FUN) == TRUE)){
+    return[2]=TRUE    
+  }
+  else{
+    return[2]=FALSE
+  }
+  
+   if(all((scaled.down.output == FUN) == TRUE)){
+    return[3]=TRUE    
+  }
+  else{
+    return[3]=FALSE
+  }
+  
+  return(return)
+}
+```
+
 
 ## Problem 11
+
+```{r}
+test.tukey.outlier(tukey.outlier(x))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
