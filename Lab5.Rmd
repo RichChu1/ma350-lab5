@@ -81,21 +81,32 @@ tukey.outlier(x)
 ```{r}
 #' Compares the outliers of a data set to its actual outliers 
 #' 
-#' @param FUN the function used to compute outliers with tukey.outliers as its default value 
+#' @param fun the function used to compute outliers with tukey.outliers as its default value 
 #'
 #' @return Returns TRUE if the function correctly identifies the outliers and FALSE otherwise.
 
-test.tukey.outlier <- function(FUN= tukey.outlier){
-  calculated.output <- tukey.outlier(x)
+test.tukey.outlier <- function(fun= tukey.outlier){
+  x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) 
+  calculated.output <- fun(x)
   
-  if(all((calculated.output == FUN) == TRUE)){
-    return(TRUE)    
+  q <- quartiles(x)
+  lower.bound <- q$First - (1.5 * q$Interquartile_Range)
+  upper.bound <- q$Third + (1.5 * q$Interquartile_Range)
+  
+  for(i in 1:length(x)){
+    if(x[i] > upper.bound){
+        bool[i] <- TRUE
+      }
+    else if(x[i] < lower.bound){
+        bool[i] <- TRUE
+    }
+    else{
+      bool[i] <- FALSE
+    }
   }
-  else{
-    return(FALSE)
-  }
+  return(bool)
 }
-test.tukey.outlier(tukey.outlier(x))
+test.tukey.outlier(tukey.outlier)
 ```
 
 ## Problem 6

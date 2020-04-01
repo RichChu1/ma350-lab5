@@ -1755,33 +1755,18 @@ summary {
 <h1>Lab 5 Get Me out(lier) of Here!</h1>
 <div id="problem-0" class="section level2">
 <h2>Problem 0</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDIuMiwgNy44LCAtNC40LCAwLjAsIC0xLjIsIDMuOSwgNC45LCAtNS43LCAtNy45LCAtNC45LCAyOC43LCA0LjkpXG54MiA8LSBjKDIwLjIsIDcuOCwgLTQwMC40LCAwLjAsIC0xMC4yLCAzMDAuOSwgNC4wMDksIC01LjcsIC03MC45LCAtNC45LCAyMDguNywgNC45KVxuYGBgIn0= -->
-<pre class="r"><code>x &lt;- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9)
-x2 &lt;- c(20.2, 7.8, -400.4, 0.0, -10.2, 300.9, 4.009, -5.7, -70.9, -4.9, 208.7, 4.9)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<p><a href="https://github.com/RichChu1/ma350-lab5" class="uri">https://github.com/RichChu1/ma350-lab5</a></p>
 </div>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucXVhbnRpbGUoeCwgMC4yNSlcbmBgYCJ9 -->
-<pre class="r"><code>quantile(x, 0.25)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueCA8LSBjKDIuMiwgNy44LCAtNC40LCAwLjAsIC0xLjIsIDMuOSwgNC45LCAtNS43LCAtNy45LCAtNC45LCAyOC43LCA0LjkpICMgeCBpcyB0aGUgZ2l2ZW4gZGF0YSBzZXQgXG5cbnF1YW50aWxlKHgsIDAuMjUpICMgY2FsY3VsYXRlcyB0aGUgZmlyc3QgcXVhcnRpbGUgb2YgeFxucXVhbnRpbGUoeCwgMC43NSkgIyBjYWxjdWxhdGVzIHRoZSB0aGlyZCBxdWFydGlsZSBvZiB4XG5gYGAifQ== -->
+<pre class="r"><code>x &lt;- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) # x is the given data set 
+
+quantile(x, 0.25) # calculates the first quartile of x
+quantile(x, 0.75) # calculates the third quartile of x</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgMjUlIFxuLTQuNTI1IFxuIn0= -->
-<pre><code>   25% 
--4.525 </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucXVhbnRpbGUoeCwgMC43NSlcbmBgYCJ9 -->
-<pre class="r"><code>quantile(x, 0.75)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiNzUlIFxuNC45IFxuIn0= -->
-<pre><code>75% 
-4.9 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1789,29 +1774,22 @@ x2 &lt;- c(20.2, 7.8, -400.4, 0.0, -10.2, 300.9, 4.009, -5.7, -70.9, -4.9, 208.7
 <h2>Problem 2</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucXVhcnRpbGVzIDwtIGZ1bmN0aW9uKHgpe1xuICBmaXJzdCA8LSBxdWFudGlsZSh4LCAwLjI1KVxuICB0aGlyZCA8LSBxdWFudGlsZSh4LCAwLjc1KVxuICBsaXN0IDwtIGxpc3QoZmlyc3QsIHRoaXJkLCB0aGlyZCAtIGZpcnN0KVxuICBuYW1lcyhsaXN0KSA8LSBjKCdGaXJzdCcsICdUaGlyZCcsICdJbnRlcnF1YXJ0aWxlX1JhbmdlJylcbiAgcmV0dXJuKGxpc3QpXG59XG5xdWFydGlsZXMoeClcbmBgYCJ9 -->
-<pre class="r"><code>quartiles &lt;- function(x){
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIycgVGFrZXMgYSB2ZWN0b3IgY29udGFpbmluZyBhIHNhbXBsZSBhbmQgcmV0dXJucyBhIHZlY3RvciB3aXRoIHRocmVlIGNvbXBvbmVudHM6IHRoZSBmaXJzdCBxdWFydGlsZSwgdGhlIHRoaXJkIHF1YXJ0aWxlLCBhbmQgdGhlIGludGVycXVhcnRpbGUgcmFuZ2UuXG4jJ1xuIycgQHBhcmFtIHggYSB2ZWN0b3IgY29udGFpbmluZyB0aGUgZGF0YSBzZXQgXG4jJ1xuIycgQHJldHVybiByZXR1cm5zIGEgbGlzdCBjb250YWluaW5nIHRoZSBmaXJzdCBxdWFydGlsZSwgdGhlIHRoaXJkIHF1YXJ0aWxlLCBhbmQgdGhlIGludGVycXVhcnRpbGUgcmFuZ2UuXG5cbnF1YXJ0aWxlcyA8LSBmdW5jdGlvbih4KXtcbiAgZmlyc3QgPC0gcXVhbnRpbGUoeCwgMC4yNSlcbiAgdGhpcmQgPC0gcXVhbnRpbGUoeCwgMC43NSlcbiAgbGlzdCA8LSBsaXN0KGZpcnN0LCB0aGlyZCwgdGhpcmQgLSBmaXJzdClcbiAgbmFtZXMobGlzdCkgPC0gYygnRmlyc3QnLCAnVGhpcmQnLCAnSW50ZXJxdWFydGlsZV9SYW5nZScpXG4gIHJldHVybihsaXN0KVxufVxucXVhcnRpbGVzKHgpXG5gYGAifQ== -->
+<pre class="r"><code>#&#39; Takes a vector containing a sample and returns a vector with three components: the first quartile, the third quartile, and the interquartile range.
+#&#39;
+#&#39; @param x a vector containing the data set 
+#&#39;
+#&#39; @return returns a list containing the first quartile, the third quartile, and the interquartile range.
+
+quartiles &lt;- function(x){
   first &lt;- quantile(x, 0.25)
   third &lt;- quantile(x, 0.75)
   list &lt;- list(first, third, third - first)
-  names(list) &lt;- c('First', 'Third', 'Interquartile_Range')
+  names(list) &lt;- c(&#39;First&#39;, &#39;Third&#39;, &#39;Interquartile_Range&#39;)
   return(list)
 }
 quartiles(x)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJEZpcnN0XG4gICAyNSUgXG4tNC41MjUgXG5cbiRUaGlyZFxuNzUlIFxuNC45IFxuXG4kSW50ZXJxdWFydGlsZV9SYW5nZVxuICA3NSUgXG45LjQyNSBcbiJ9 -->
-<pre><code>$First
-   25% 
--4.525 
-
-$Third
-75% 
-4.9 
-
-$Interquartile_Range
-  75% 
-9.425 </code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1823,8 +1801,14 @@ $Interquartile_Range
 <h2>Problem 4</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHVrZXkub3V0bGllciA8LSBmdW5jdGlvbih4KXtcbiAgcSA8LSBxdWFydGlsZXMoeClcbiAgbG93ZXIuYm91bmQgPC0gcSRGaXJzdCAtICgxLjUgKiBxJEludGVycXVhcnRpbGVfUmFuZ2UpXG4gIHVwcGVyLmJvdW5kIDwtIHEkVGhpcmQgKyAoMS41ICogcSRJbnRlcnF1YXJ0aWxlX1JhbmdlKVxuICBcbiAgYm9vbCA8LSB2ZWN0b3IobGVuZ3RoPWxlbmd0aCh4KSlcbiAgXG4gIGZvcihpIGluIDE6bGVuZ3RoKHgpKXtcbiAgICBpZih4W2ldID4gdXBwZXIuYm91bmQpe1xuICAgICAgICBib29sW2ldIDwtIFRSVUVcbiAgICAgIH1cbiAgICBlbHNlIGlmKHhbaV0gPCBsb3dlci5ib3VuZCl7XG4gICAgICAgIGJvb2xbaV0gPC0gVFJVRVxuICAgIH1cbiAgICBlbHNle1xuICAgICAgYm9vbFtpXSA8LSBGQUxTRVxuICAgIH1cbiAgfVxuICByZXR1cm4oYm9vbClcbn1cblxudHVrZXkub3V0bGllcih4KVxuYGBgIn0= -->
-<pre class="r"><code>tukey.outlier &lt;- function(x){
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIycgVGFrZXMgYSB2ZWN0b3IgY29udGFpbmluZyBhIHNhbXBsZSBhbmQgcmV0dXJucyBhIEJvb2xlYW4gdmVjdG9yIHdpdGggVFJVRSBhdCB0aGUgZWxlbWVudHMgY29ycmVzcG9uZGluZyB0byBvdXRsaWVyIG9ic2VydmF0aW9ucyBhbmQgRkFMU0UgZXZlcnl3aGVyZSBlbHNlLlxuIycgXG4jJyBAcGFyYW0geCBhIHZlY3RvciBjb250YWluaW5nIHRoZSBkYXRhIHNldCBcbiMnXG4jJyBAcmV0dXJuIGEgdmVjdG9yIG9mIEJvb2xlYW4gdmFsdWVzIFxuXG50dWtleS5vdXRsaWVyIDwtIGZ1bmN0aW9uKHgpe1xuICBxIDwtIHF1YXJ0aWxlcyh4KVxuICBsb3dlci5ib3VuZCA8LSBxJEZpcnN0IC0gKDEuNSAqIHEkSW50ZXJxdWFydGlsZV9SYW5nZSlcbiAgdXBwZXIuYm91bmQgPC0gcSRUaGlyZCArICgxLjUgKiBxJEludGVycXVhcnRpbGVfUmFuZ2UpXG4gIFxuICBib29sIDwtIHZlY3RvcihsZW5ndGg9bGVuZ3RoKHgpKVxuICBcbiAgZm9yKGkgaW4gMTpsZW5ndGgoeCkpe1xuICAgIGlmKHhbaV0gPiB1cHBlci5ib3VuZCl7XG4gICAgICAgIGJvb2xbaV0gPC0gVFJVRVxuICAgICAgfVxuICAgIGVsc2UgaWYoeFtpXSA8IGxvd2VyLmJvdW5kKXtcbiAgICAgICAgYm9vbFtpXSA8LSBUUlVFXG4gICAgfVxuICAgIGVsc2V7XG4gICAgICBib29sW2ldIDwtIEZBTFNFXG4gICAgfVxuICB9XG4gIHJldHVybihib29sKVxufVxuXG50dWtleS5vdXRsaWVyKHgpXG5gYGAifQ== -->
+<pre class="r"><code>#&#39; Takes a vector containing a sample and returns a Boolean vector with TRUE at the elements corresponding to outlier observations and FALSE everywhere else.
+#&#39; 
+#&#39; @param x a vector containing the data set 
+#&#39;
+#&#39; @return a vector of Boolean values 
+
+tukey.outlier &lt;- function(x){
   q &lt;- quartiles(x)
   lower.bound &lt;- q$First - (1.5 * q$Interquartile_Range)
   upper.bound &lt;- q$Third + (1.5 * q$Interquartile_Range)
@@ -1847,9 +1831,6 @@ $Interquartile_Range
 
 tukey.outlier(x)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSAgVFJVRSBGQUxTRVxuIn0= -->
-<pre><code> [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1857,47 +1838,169 @@ tukey.outlier(x)</code></pre>
 <h2>Problem 5</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdC50dWtleS5vdXRsaWVyIDwtIGZ1bmN0aW9uKEZVTj0gdHVrZXkub3V0bGllcil7XG4gIGNhbGN1bGF0ZWQub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoeDIpXG4gIFxuICBpZihhbGwoKGNhbGN1bGF0ZWQub3V0cHV0ID09IEZVTikgPT0gVFJVRSkpe1xuICAgIHJldHVybihUUlVFKSAgICBcbiAgfVxuICBlbHNle1xuICAgIHJldHVybihGQUxTRSlcbiAgfVxufVxudGVzdC50dWtleS5vdXRsaWVyKHR1a2V5Lm91dGxpZXIoeCkpXG5gYGAifQ== -->
-<pre class="r"><code>test.tukey.outlier &lt;- function(FUN= tukey.outlier){
-  calculated.output &lt;- tukey.outlier(x2)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIycgQ29tcGFyZXMgdGhlIG91dGxpZXJzIG9mIGEgZGF0YSBzZXQgdG8gaXRzIGFjdHVhbCBvdXRsaWVycyBcbiMnIFxuIycgQHBhcmFtIGZ1biB0aGUgZnVuY3Rpb24gdXNlZCB0byBjb21wdXRlIG91dGxpZXJzIHdpdGggdHVrZXkub3V0bGllcnMgYXMgaXRzIGRlZmF1bHQgdmFsdWUgXG4jJ1xuIycgQHJldHVybiBSZXR1cm5zIFRSVUUgaWYgdGhlIGZ1bmN0aW9uIGNvcnJlY3RseSBpZGVudGlmaWVzIHRoZSBvdXRsaWVycyBhbmQgRkFMU0Ugb3RoZXJ3aXNlLlxuXG50ZXN0LnR1a2V5Lm91dGxpZXIgPC0gZnVuY3Rpb24oZnVuPSB0dWtleS5vdXRsaWVyKXtcbiAgeCA8LSBjKDIuMiwgNy44LCAtNC40LCAwLjAsIC0xLjIsIDMuOSwgNC45LCAtNS43LCAtNy45LCAtNC45LCAyOC43LCA0LjkpIFxuICBjYWxjdWxhdGVkLm91dHB1dCA8LSBmdW4oeClcbiAgXG4gIHEgPC0gcXVhcnRpbGVzKHgpXG4gIGxvd2VyLmJvdW5kIDwtIHEkRmlyc3QgLSAoMS41ICogcSRJbnRlcnF1YXJ0aWxlX1JhbmdlKVxuICB1cHBlci5ib3VuZCA8LSBxJFRoaXJkICsgKDEuNSAqIHEkSW50ZXJxdWFydGlsZV9SYW5nZSlcbiAgXG4gIGZvcihpIGluIDE6bGVuZ3RoKHgpKXtcbiAgICBpZih4W2ldID4gdXBwZXIuYm91bmQpe1xuICAgICAgICBib29sW2ldIDwtIFRSVUVcbiAgICAgIH1cbiAgICBlbHNlIGlmKHhbaV0gPCBsb3dlci5ib3VuZCl7XG4gICAgICAgIGJvb2xbaV0gPC0gVFJVRVxuICAgIH1cbiAgICBlbHNle1xuICAgICAgYm9vbFtpXSA8LSBGQUxTRVxuICAgIH1cbiAgfVxuICByZXR1cm4oYm9vbClcbn1cbnRlc3QudHVrZXkub3V0bGllcih0dWtleS5vdXRsaWVyKVxuYGBgIn0= -->
+<pre class="r"><code>#&#39; Compares the outliers of a data set to its actual outliers 
+#&#39; 
+#&#39; @param fun the function used to compute outliers with tukey.outliers as its default value 
+#&#39;
+#&#39; @return Returns TRUE if the function correctly identifies the outliers and FALSE otherwise.
+
+test.tukey.outlier &lt;- function(fun= tukey.outlier){
+  x &lt;- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) 
+  calculated.output &lt;- fun(x)
   
-  if(all((calculated.output == FUN) == TRUE)){
-    return(TRUE)    
+  q &lt;- quartiles(x)
+  lower.bound &lt;- q$First - (1.5 * q$Interquartile_Range)
+  upper.bound &lt;- q$Third + (1.5 * q$Interquartile_Range)
+  
+  for(i in 1:length(x)){
+    if(x[i] &gt; upper.bound){
+        bool[i] &lt;- TRUE
+      }
+    else if(x[i] &lt; lower.bound){
+        bool[i] &lt;- TRUE
+    }
+    else{
+      bool[i] &lt;- FALSE
+    }
   }
-  else{
-    return(FALSE)
-  }
+  return(bool)
 }
-test.tukey.outlier(tukey.outlier(x))</code></pre>
+test.tukey.outlier(tukey.outlier)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIEZBTFNFXG4ifQ== -->
-<pre><code>[1] FALSE</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
 <div id="problem-6" class="section level2">
 <h2>Problem 6</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueDIgPC0gLXhcblxudHVrZXkub3V0bGllcih4MilcbmBgYCJ9 -->
+<pre class="r"><code>x2 &lt;- -x
+
+tukey.outlier(x2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The only data value that should be an outlier in -x is the eleventh term (-28.7). This makes sense because -x is just a reflection of x, so the outlier bounds are just flipped.</p>
 </div>
 <div id="problem-7" class="section level2">
 <h2>Problem 7</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIycgQ29tcGFyZXMgdGhlIG91dGxpZXJzIG9mIGEgZGF0YSBzZXQgdG8gaXRzIGFjdHVhbCBvdXRsaWVycyBcbiMnIFxuIycgQHBhcmFtIEZVTiB0aGUgZnVuY3Rpb24gdXNlZCB0byBjb21wdXRlIG91dGxpZXJzIHdpdGggdHVrZXkub3V0bGllcnMgYXMgaXRzIGRlZmF1bHQgdmFsdWUgXG4jJ1xuIycgQHJldHVybiBSZXR1cm5zIGEgQm9vbGVhbiB2ZWN0b3Igd2l0aCB0d28gZWxlbWVudHMsIG9uZSBmb3IgeCBhbmQgb25lIGZvciAteCBcblxudGVzdC50dWtleS5vdXRsaWVyIDwtIGZ1bmN0aW9uKEZVTj0gdHVrZXkub3V0bGllcil7XG4gIGNhbGN1bGF0ZWQub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoeClcbiAgbmVnYXRpdmUub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoLXgpICMgbmV3IG1vZGlmaWNhdGlvbiB0byB0aGUgZnVuY3Rpb24gZnJvbSBwcm9ibGVtIDUgXG4gIHJldHVybiA8LSB2ZWN0b3IobGVuZ3RoPTIpXG4gIFxuICBpZihhbGwoKGNhbGN1bGF0ZWQub3V0cHV0ID09IEZVTikgPT0gVFJVRSkpe1xuICAgIHJldHVyblsxXT1UUlVFICAgIFxuICB9XG4gIGVsc2V7XG4gICAgcmV0dXJuWzFdPUZBTFNFXG4gIH1cbiAgXG4gIGlmKGFsbCgobmVnYXRpdmUub3V0cHV0ID09IEZVTikgPT0gVFJVRSkpe1xuICAgIHJldHVyblsyXT1UUlVFICAgIFxuICB9XG4gIGVsc2V7XG4gICAgcmV0dXJuWzJdPUZBTFNFXG4gIH1cbiAgcmV0dXJuKHJldHVybilcbn1cblxuYGBgIn0= -->
+<pre class="r"><code>#&#39; Compares the outliers of a data set to its actual outliers 
+#&#39; 
+#&#39; @param FUN the function used to compute outliers with tukey.outliers as its default value 
+#&#39;
+#&#39; @return Returns a Boolean vector with two elements, one for x and one for -x 
+
+test.tukey.outlier &lt;- function(FUN= tukey.outlier){
+  calculated.output &lt;- tukey.outlier(x)
+  negative.output &lt;- tukey.outlier(-x) # new modification to the function from problem 5 
+  return &lt;- vector(length=2)
+  
+  if(all((calculated.output == FUN) == TRUE)){
+    return[1]=TRUE    
+  }
+  else{
+    return[1]=FALSE
+  }
+  
+  if(all((negative.output == FUN) == TRUE)){
+    return[2]=TRUE    
+  }
+  else{
+    return[2]=FALSE
+  }
+  return(return)
+}
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="problem-8" class="section level2">
 <h2>Problem 8</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdC50dWtleS5vdXRsaWVyKHR1a2V5Lm91dGxpZXIoeCkpXG5gYGAifQ== -->
+<pre class="r"><code>test.tukey.outlier(tukey.outlier(x))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="problem-9" class="section level2">
 <h2>Problem 9</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueDMgPC0gMC4xKnhcblxudHVrZXkub3V0bGllcih4MylcbmBgYCJ9 -->
+<pre class="r"><code>x3 &lt;- 0.1*x
+
+tukey.outlier(x3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>The only data value that should be an outlier in 0.1*x is the eleventh term (2.87). This makes sense because it’s scaled down.</p>
 </div>
 <div id="problem-10" class="section level2">
 <h2>Problem 10</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIycgQ29tcGFyZXMgdGhlIG91dGxpZXJzIG9mIGEgZGF0YSBzZXQgdG8gaXRzIGFjdHVhbCBvdXRsaWVycyBcbiMnIFxuIycgQHBhcmFtIEZVTiB0aGUgZnVuY3Rpb24gdXNlZCB0byBjb21wdXRlIG91dGxpZXJzIHdpdGggdHVrZXkub3V0bGllcnMgYXMgaXRzIGRlZmF1bHQgdmFsdWUgXG4jJ1xuIycgQHJldHVybiBSZXR1cm5zIGEgQm9vbGVhbiB2ZWN0b3Igd2l0aCB0aHJlZSBlbGVtZW50cywgb25lIGZvciB4LCBvbmUgZm9yIC14LCBhbmQgb25lIGZvciAwLjEqeCBcblxudGVzdC50dWtleS5vdXRsaWVyIDwtIGZ1bmN0aW9uKEZVTj0gdHVrZXkub3V0bGllcil7XG4gIGNhbGN1bGF0ZWQub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoeClcbiAgbmVnYXRpdmUub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoLXgpXG4gIHNjYWxlZC5kb3duLm91dHB1dCA8LSB0dWtleS5vdXRsaWVyKDAuMSp4KSAjIG5ldyBtb2RpZmljYXRpb24gdG8gdGhlIGZ1bmN0aW9uIGZyb20gcHJvYmxlbSA3IFxuICByZXR1cm4gPC0gdmVjdG9yKGxlbmd0aD0zKVxuICBcbiAgaWYoYWxsKChjYWxjdWxhdGVkLm91dHB1dCA9PSBGVU4pID09IFRSVUUpKXtcbiAgICByZXR1cm5bMV09VFJVRSAgICBcbiAgfVxuICBlbHNle1xuICAgIHJldHVyblsxXT1GQUxTRVxuICB9XG4gIFxuICBpZihhbGwoKG5lZ2F0aXZlLm91dHB1dCA9PSBGVU4pID09IFRSVUUpKXtcbiAgICByZXR1cm5bMl09VFJVRSAgICBcbiAgfVxuICBlbHNle1xuICAgIHJldHVyblsyXT1GQUxTRVxuICB9XG4gIFxuICBpZihhbGwoKHNjYWxlZC5kb3duLm91dHB1dCA9PSBGVU4pID09IFRSVUUpKXtcbiAgICByZXR1cm5bM109VFJVRSAgICBcbiAgfVxuICBlbHNle1xuICAgIHJldHVyblszXT1GQUxTRVxuICB9XG4gIFxuICByZXR1cm4ocmV0dXJuKVxufVxuYGBgIn0= -->
+<pre class="r"><code>#&#39; Compares the outliers of a data set to its actual outliers 
+#&#39; 
+#&#39; @param FUN the function used to compute outliers with tukey.outliers as its default value 
+#&#39;
+#&#39; @return Returns a Boolean vector with three elements, one for x, one for -x, and one for 0.1*x 
+
+test.tukey.outlier &lt;- function(FUN= tukey.outlier){
+  calculated.output &lt;- tukey.outlier(x)
+  negative.output &lt;- tukey.outlier(-x)
+  scaled.down.output &lt;- tukey.outlier(0.1*x) # new modification to the function from problem 7 
+  return &lt;- vector(length=3)
+  
+  if(all((calculated.output == FUN) == TRUE)){
+    return[1]=TRUE    
+  }
+  else{
+    return[1]=FALSE
+  }
+  
+  if(all((negative.output == FUN) == TRUE)){
+    return[2]=TRUE    
+  }
+  else{
+    return[2]=FALSE
+  }
+  
+  if(all((scaled.down.output == FUN) == TRUE)){
+    return[3]=TRUE    
+  }
+  else{
+    return[3]=FALSE
+  }
+  
+  return(return)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="problem-11" class="section level2">
 <h2>Problem 11</h2>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGVzdC50dWtleS5vdXRsaWVyKHR1a2V5Lm91dGxpZXIoeCkpXG5gYGAifQ== -->
+<pre class="r"><code>test.tukey.outlier(tukey.outlier(x))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTGFiIDUiCmF1dGhvcjogJ1JpY2ggQ2h1LCBMb3JlbmEgTWFuY2lubycKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBMYWIgNSBHZXQgTWUgb3V0KGxpZXIpIG9mIEhlcmUhCgojIyBQcm9ibGVtIDAKCmBgYHtyfQp4IDwtIGMoMi4yLCA3LjgsIC00LjQsIDAuMCwgLTEuMiwgMy45LCA0LjksIC01LjcsIC03LjksIC00LjksIDI4LjcsIDQuOSkKYGBgCgoKIyMgUHJvYmxlbSAxCgpgYGB7cn0KcXVhbnRpbGUoeCwgMC4yNSkKcXVhbnRpbGUoeCwgMC43NSkKYGBgCgojIyBQcm9ibGVtIDIKCmBgYHtyfQpxdWFydGlsZXMgPC0gZnVuY3Rpb24oeCl7CiAgZmlyc3QgPC0gcXVhbnRpbGUoeCwgMC4yNSkKICB0aGlyZCA8LSBxdWFudGlsZSh4LCAwLjc1KQogIGxpc3QgPC0gbGlzdChmaXJzdCwgdGhpcmQsIHRoaXJkIC0gZmlyc3QpCiAgbmFtZXMobGlzdCkgPC0gYygnRmlyc3QnLCAnVGhpcmQnLCAnSW50ZXJxdWFydGlsZV9SYW5nZScpCiAgcmV0dXJuKGxpc3QpCn0KcXVhcnRpbGVzKHgpCmBgYAoKIyMgUHJvYmxlbSAzCkFjY29yZGluZyB0byBUdWtleSdzIHJ1bGVzLCB0aGUgbG93ZXIgYm91bmQgZm9yIG91dGxpZXJzIGlzIC0xOC42NjI1IGFuZCB0aGVyZSBhcmUgbm8gdmFsdWVzIGxlc3MgdGhhbiB0aGF0LCBtZWFuaW5nIHRoZXJlIGFyZSBubyBsb3dlciBvdXRsaWVycyBpbiB0aGUgc2V0LgpBY2NvcmRpbmcgdG8gVHVrZXkncyBydWxlcywgdGhlIHVwcGVyIGJvdW5kIGZvciBvdXRsaWVycyBpcyAxOS4wMzc1IGFuZCB0aGVyZSBpcyBvbmUgdmFsdWUgYWJvdmUgdGhhbiB0aGF0LCBtZWFuaW5nIHRoYXQgMjguNyBpcyB0aGUgb25seSB1cHBlciBvdXRsaWVycyBpbiB0aGUgc2V0LgoKIyMgUHJvYmxlbSA0CgpgYGB7cn0KdHVrZXkub3V0bGllciA8LSBmdW5jdGlvbih4KXsKICBxIDwtIHF1YXJ0aWxlcyh4KQogIGxvd2VyLmJvdW5kIDwtIHEkRmlyc3QgLSAoMS41ICogcSRJbnRlcnF1YXJ0aWxlX1JhbmdlKQogIHVwcGVyLmJvdW5kIDwtIHEkVGhpcmQgKyAoMS41ICogcSRJbnRlcnF1YXJ0aWxlX1JhbmdlKQogIAogIGJvb2wgPC0gdmVjdG9yKGxlbmd0aD1sZW5ndGgoeCkpCiAgCiAgZm9yKGkgaW4gMTpsZW5ndGgoeCkpewogICAgaWYoeFtpXSA+IHVwcGVyLmJvdW5kKXsKICAgICAgICBib29sW2ldIDwtIFRSVUUKICAgICAgfQogICAgZWxzZSBpZih4W2ldIDwgbG93ZXIuYm91bmQpewogICAgICAgIGJvb2xbaV0gPC0gVFJVRQogICAgfQogICAgZWxzZXsKICAgICAgYm9vbFtpXSA8LSBGQUxTRQogICAgfQogIH0KICByZXR1cm4oYm9vbCkKfQoKdHVrZXkub3V0bGllcih4KQpgYGAKCiMjIFByb2JsZW0gNQoKYGBge3J9CnRlc3QudHVrZXkub3V0bGllciA8LSBmdW5jdGlvbihGVU49IHR1a2V5Lm91dGxpZXIpewogIGNhbGN1bGF0ZWQub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoeCkKICAKICBpZihhbGwoKGNhbGN1bGF0ZWQub3V0cHV0ID09IEZVTikgPT0gVFJVRSkpewogICAgcmV0dXJuKFRSVUUpICAgIAogIH0KICBlbHNlewogICAgcmV0dXJuKEZBTFNFKQogIH0KfQp0ZXN0LnR1a2V5Lm91dGxpZXIodHVrZXkub3V0bGllcih4KSkKYGBgCgojIyBQcm9ibGVtIDYKCgoKIyMgUHJvYmxlbSA3CgoKCiMjIFByb2JsZW0gOAoKCgojIyBQcm9ibGVtIDkKCgoKIyMgUHJvYmxlbSAxMAoKCiMjIFByb2JsZW0gMTEKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTGFiIDUiCmF1dGhvcjogJ1JpY2ggQ2h1LCBMb3JlbmEgTWFuY2lubycKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyBMYWIgNSBHZXQgTWUgb3V0KGxpZXIpIG9mIEhlcmUhCgojIyBQcm9ibGVtIDAKCmh0dHBzOi8vZ2l0aHViLmNvbS9SaWNoQ2h1MS9tYTM1MC1sYWI1CgojIyBQcm9ibGVtIDEKCmBgYHtyfQp4IDwtIGMoMi4yLCA3LjgsIC00LjQsIDAuMCwgLTEuMiwgMy45LCA0LjksIC01LjcsIC03LjksIC00LjksIDI4LjcsIDQuOSkgIyB4IGlzIHRoZSBnaXZlbiBkYXRhIHNldCAKCnF1YW50aWxlKHgsIDAuMjUpICMgY2FsY3VsYXRlcyB0aGUgZmlyc3QgcXVhcnRpbGUgb2YgeApxdWFudGlsZSh4LCAwLjc1KSAjIGNhbGN1bGF0ZXMgdGhlIHRoaXJkIHF1YXJ0aWxlIG9mIHgKYGBgCgojIyBQcm9ibGVtIDIKCmBgYHtyfQojJyBUYWtlcyBhIHZlY3RvciBjb250YWluaW5nIGEgc2FtcGxlIGFuZCByZXR1cm5zIGEgdmVjdG9yIHdpdGggdGhyZWUgY29tcG9uZW50czogdGhlIGZpcnN0IHF1YXJ0aWxlLCB0aGUgdGhpcmQgcXVhcnRpbGUsIGFuZCB0aGUgaW50ZXJxdWFydGlsZSByYW5nZS4KIycKIycgQHBhcmFtIHggYSB2ZWN0b3IgY29udGFpbmluZyB0aGUgZGF0YSBzZXQgCiMnCiMnIEByZXR1cm4gcmV0dXJucyBhIGxpc3QgY29udGFpbmluZyB0aGUgZmlyc3QgcXVhcnRpbGUsIHRoZSB0aGlyZCBxdWFydGlsZSwgYW5kIHRoZSBpbnRlcnF1YXJ0aWxlIHJhbmdlLgoKcXVhcnRpbGVzIDwtIGZ1bmN0aW9uKHgpewogIGZpcnN0IDwtIHF1YW50aWxlKHgsIDAuMjUpCiAgdGhpcmQgPC0gcXVhbnRpbGUoeCwgMC43NSkKICBsaXN0IDwtIGxpc3QoZmlyc3QsIHRoaXJkLCB0aGlyZCAtIGZpcnN0KQogIG5hbWVzKGxpc3QpIDwtIGMoJ0ZpcnN0JywgJ1RoaXJkJywgJ0ludGVycXVhcnRpbGVfUmFuZ2UnKQogIHJldHVybihsaXN0KQp9CnF1YXJ0aWxlcyh4KQpgYGAKCiMjIFByb2JsZW0gMwoKQWNjb3JkaW5nIHRvIFR1a2V5J3MgcnVsZXMsIHRoZSBsb3dlciBib3VuZCBmb3Igb3V0bGllcnMgaXMgLTE4LjY2MjUgYW5kIHRoZXJlIGFyZSBubyB2YWx1ZXMgbGVzcyB0aGFuIHRoYXQsIG1lYW5pbmcgdGhlcmUgYXJlIG5vIGxvd2VyIG91dGxpZXJzIGluIHRoZSBzZXQuCkFjY29yZGluZyB0byBUdWtleSdzIHJ1bGVzLCB0aGUgdXBwZXIgYm91bmQgZm9yIG91dGxpZXJzIGlzIDE5LjAzNzUgYW5kIHRoZXJlIGlzIG9uZSB2YWx1ZSBhYm92ZSB0aGFuIHRoYXQsIG1lYW5pbmcgdGhhdCAyOC43IGlzIHRoZSBvbmx5IHVwcGVyIG91dGxpZXJzIGluIHRoZSBzZXQuCgojIyBQcm9ibGVtIDQKCmBgYHtyfQojJyBUYWtlcyBhIHZlY3RvciBjb250YWluaW5nIGEgc2FtcGxlIGFuZCByZXR1cm5zIGEgQm9vbGVhbiB2ZWN0b3Igd2l0aCBUUlVFIGF0IHRoZSBlbGVtZW50cyBjb3JyZXNwb25kaW5nIHRvIG91dGxpZXIgb2JzZXJ2YXRpb25zIGFuZCBGQUxTRSBldmVyeXdoZXJlIGVsc2UuCiMnIAojJyBAcGFyYW0geCBhIHZlY3RvciBjb250YWluaW5nIHRoZSBkYXRhIHNldCAKIycKIycgQHJldHVybiBhIHZlY3RvciBvZiBCb29sZWFuIHZhbHVlcyAKCnR1a2V5Lm91dGxpZXIgPC0gZnVuY3Rpb24oeCl7CiAgcSA8LSBxdWFydGlsZXMoeCkKICBsb3dlci5ib3VuZCA8LSBxJEZpcnN0IC0gKDEuNSAqIHEkSW50ZXJxdWFydGlsZV9SYW5nZSkKICB1cHBlci5ib3VuZCA8LSBxJFRoaXJkICsgKDEuNSAqIHEkSW50ZXJxdWFydGlsZV9SYW5nZSkKICAKICBib29sIDwtIHZlY3RvcihsZW5ndGg9bGVuZ3RoKHgpKQogIAogIGZvcihpIGluIDE6bGVuZ3RoKHgpKXsKICAgIGlmKHhbaV0gPiB1cHBlci5ib3VuZCl7CiAgICAgICAgYm9vbFtpXSA8LSBUUlVFCiAgICAgIH0KICAgIGVsc2UgaWYoeFtpXSA8IGxvd2VyLmJvdW5kKXsKICAgICAgICBib29sW2ldIDwtIFRSVUUKICAgIH0KICAgIGVsc2V7CiAgICAgIGJvb2xbaV0gPC0gRkFMU0UKICAgIH0KICB9CiAgcmV0dXJuKGJvb2wpCn0KCnR1a2V5Lm91dGxpZXIoeCkKYGBgCgojIyBQcm9ibGVtIDUKCmBgYHtyfQojJyBDb21wYXJlcyB0aGUgb3V0bGllcnMgb2YgYSBkYXRhIHNldCB0byBpdHMgYWN0dWFsIG91dGxpZXJzIAojJyAKIycgQHBhcmFtIGZ1biB0aGUgZnVuY3Rpb24gdXNlZCB0byBjb21wdXRlIG91dGxpZXJzIHdpdGggdHVrZXkub3V0bGllcnMgYXMgaXRzIGRlZmF1bHQgdmFsdWUgCiMnCiMnIEByZXR1cm4gUmV0dXJucyBUUlVFIGlmIHRoZSBmdW5jdGlvbiBjb3JyZWN0bHkgaWRlbnRpZmllcyB0aGUgb3V0bGllcnMgYW5kIEZBTFNFIG90aGVyd2lzZS4KCnRlc3QudHVrZXkub3V0bGllciA8LSBmdW5jdGlvbihmdW49IHR1a2V5Lm91dGxpZXIpewogIHggPC0gYygyLjIsIDcuOCwgLTQuNCwgMC4wLCAtMS4yLCAzLjksIDQuOSwgLTUuNywgLTcuOSwgLTQuOSwgMjguNywgNC45KSAKICBjYWxjdWxhdGVkLm91dHB1dCA8LSBmdW4oeCkKICAKICBxIDwtIHF1YXJ0aWxlcyh4KQogIGxvd2VyLmJvdW5kIDwtIHEkRmlyc3QgLSAoMS41ICogcSRJbnRlcnF1YXJ0aWxlX1JhbmdlKQogIHVwcGVyLmJvdW5kIDwtIHEkVGhpcmQgKyAoMS41ICogcSRJbnRlcnF1YXJ0aWxlX1JhbmdlKQogIAogIGZvcihpIGluIDE6bGVuZ3RoKHgpKXsKICAgIGlmKHhbaV0gPiB1cHBlci5ib3VuZCl7CiAgICAgICAgYm9vbFtpXSA8LSBUUlVFCiAgICAgIH0KICAgIGVsc2UgaWYoeFtpXSA8IGxvd2VyLmJvdW5kKXsKICAgICAgICBib29sW2ldIDwtIFRSVUUKICAgIH0KICAgIGVsc2V7CiAgICAgIGJvb2xbaV0gPC0gRkFMU0UKICAgIH0KICB9CiAgcmV0dXJuKGJvb2wpCn0KdGVzdC50dWtleS5vdXRsaWVyKHR1a2V5Lm91dGxpZXIpCmBgYAoKIyMgUHJvYmxlbSA2CgpgYGB7cn0KeDIgPC0gLXgKCnR1a2V5Lm91dGxpZXIoeDIpCmBgYApUaGUgb25seSBkYXRhIHZhbHVlIHRoYXQgc2hvdWxkIGJlIGFuIG91dGxpZXIgaW4gLXggaXMgdGhlIGVsZXZlbnRoIHRlcm0gKC0yOC43KS4gVGhpcyBtYWtlcyBzZW5zZSBiZWNhdXNlIC14IGlzIGp1c3QgYSByZWZsZWN0aW9uIG9mIHgsIHNvIHRoZSBvdXRsaWVyIGJvdW5kcyBhcmUganVzdCBmbGlwcGVkLiAKCiMjIFByb2JsZW0gNwoKYGBge3J9CiMnIENvbXBhcmVzIHRoZSBvdXRsaWVycyBvZiBhIGRhdGEgc2V0IHRvIGl0cyBhY3R1YWwgb3V0bGllcnMgCiMnIAojJyBAcGFyYW0gRlVOIHRoZSBmdW5jdGlvbiB1c2VkIHRvIGNvbXB1dGUgb3V0bGllcnMgd2l0aCB0dWtleS5vdXRsaWVycyBhcyBpdHMgZGVmYXVsdCB2YWx1ZSAKIycKIycgQHJldHVybiBSZXR1cm5zIGEgQm9vbGVhbiB2ZWN0b3Igd2l0aCB0d28gZWxlbWVudHMsIG9uZSBmb3IgeCBhbmQgb25lIGZvciAteCAKCnRlc3QudHVrZXkub3V0bGllciA8LSBmdW5jdGlvbihGVU49IHR1a2V5Lm91dGxpZXIpewogIGNhbGN1bGF0ZWQub3V0cHV0IDwtIHR1a2V5Lm91dGxpZXIoeCkKICBuZWdhdGl2ZS5vdXRwdXQgPC0gdHVrZXkub3V0bGllcigteCkgIyBuZXcgbW9kaWZpY2F0aW9uIHRvIHRoZSBmdW5jdGlvbiBmcm9tIHByb2JsZW0gNSAKICByZXR1cm4gPC0gdmVjdG9yKGxlbmd0aD0yKQogIAogIGlmKGFsbCgoY2FsY3VsYXRlZC5vdXRwdXQgPT0gRlVOKSA9PSBUUlVFKSl7CiAgICByZXR1cm5bMV09VFJVRSAgICAKICB9CiAgZWxzZXsKICAgIHJldHVyblsxXT1GQUxTRQogIH0KICAKICBpZihhbGwoKG5lZ2F0aXZlLm91dHB1dCA9PSBGVU4pID09IFRSVUUpKXsKICAgIHJldHVyblsyXT1UUlVFICAgIAogIH0KICBlbHNlewogICAgcmV0dXJuWzJdPUZBTFNFCiAgfQogIHJldHVybihyZXR1cm4pCn0KCmBgYAoKIyMgUHJvYmxlbSA4CgpgYGB7cn0KdGVzdC50dWtleS5vdXRsaWVyKHR1a2V5Lm91dGxpZXIoeCkpCmBgYAoKIyMgUHJvYmxlbSA5CgpgYGB7cn0KeDMgPC0gMC4xKngKCnR1a2V5Lm91dGxpZXIoeDMpCmBgYApUaGUgb25seSBkYXRhIHZhbHVlIHRoYXQgc2hvdWxkIGJlIGFuIG91dGxpZXIgaW4gMC4xKnggaXMgdGhlIGVsZXZlbnRoIHRlcm0gKDIuODcpLiBUaGlzIG1ha2VzIHNlbnNlIGJlY2F1c2UgaXQncyBzY2FsZWQgZG93bi4gCgojIyBQcm9ibGVtIDEwCgpgYGB7cn0KIycgQ29tcGFyZXMgdGhlIG91dGxpZXJzIG9mIGEgZGF0YSBzZXQgdG8gaXRzIGFjdHVhbCBvdXRsaWVycyAKIycgCiMnIEBwYXJhbSBGVU4gdGhlIGZ1bmN0aW9uIHVzZWQgdG8gY29tcHV0ZSBvdXRsaWVycyB3aXRoIHR1a2V5Lm91dGxpZXJzIGFzIGl0cyBkZWZhdWx0IHZhbHVlIAojJwojJyBAcmV0dXJuIFJldHVybnMgYSBCb29sZWFuIHZlY3RvciB3aXRoIHRocmVlIGVsZW1lbnRzLCBvbmUgZm9yIHgsIG9uZSBmb3IgLXgsIGFuZCBvbmUgZm9yIDAuMSp4IAoKdGVzdC50dWtleS5vdXRsaWVyIDwtIGZ1bmN0aW9uKEZVTj0gdHVrZXkub3V0bGllcil7CiAgY2FsY3VsYXRlZC5vdXRwdXQgPC0gdHVrZXkub3V0bGllcih4KQogIG5lZ2F0aXZlLm91dHB1dCA8LSB0dWtleS5vdXRsaWVyKC14KQogIHNjYWxlZC5kb3duLm91dHB1dCA8LSB0dWtleS5vdXRsaWVyKDAuMSp4KSAjIG5ldyBtb2RpZmljYXRpb24gdG8gdGhlIGZ1bmN0aW9uIGZyb20gcHJvYmxlbSA3IAogIHJldHVybiA8LSB2ZWN0b3IobGVuZ3RoPTMpCiAgCiAgaWYoYWxsKChjYWxjdWxhdGVkLm91dHB1dCA9PSBGVU4pID09IFRSVUUpKXsKICAgIHJldHVyblsxXT1UUlVFICAgIAogIH0KICBlbHNlewogICAgcmV0dXJuWzFdPUZBTFNFCiAgfQogIAogIGlmKGFsbCgobmVnYXRpdmUub3V0cHV0ID09IEZVTikgPT0gVFJVRSkpewogICAgcmV0dXJuWzJdPVRSVUUgICAgCiAgfQogIGVsc2V7CiAgICByZXR1cm5bMl09RkFMU0UKICB9CiAgCiAgaWYoYWxsKChzY2FsZWQuZG93bi5vdXRwdXQgPT0gRlVOKSA9PSBUUlVFKSl7CiAgICByZXR1cm5bM109VFJVRSAgICAKICB9CiAgZWxzZXsKICAgIHJldHVyblszXT1GQUxTRQogIH0KICAKICByZXR1cm4ocmV0dXJuKQp9CmBgYAoKIyMgUHJvYmxlbSAxMQoKYGBge3J9CnRlc3QudHVrZXkub3V0bGllcih0dWtleS5vdXRsaWVyKHgpKQpgYGAKCgoKCgoKCgoKCgoKCgoKCg==</div>
 
 
 
