@@ -79,34 +79,22 @@ tukey.outlier(x)
 ## Problem 5
 
 ```{r}
-#' Compares the outliers of a data set to its actual outliers 
+#' Tests the outliers by comparing the outliers of a data set to its actual outliers 
 #' 
-#' @param fun the function used to compute outliers with tukey.outliers as its default value 
+#' @param FUN the function used to compute outliers, with tukey.outliers as its default value 
 #'
 #' @return Returns TRUE if the function correctly identifies the outliers and FALSE otherwise.
 
-test.tukey.outlier <- function(fun= tukey.outlier){
+test.tukey.outlier <- function(FUN= tukey.outlier){
+  results = c(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE)
+  
   x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) 
-  calculated.output <- fun(x)
+  calculated.output <- FUN(x)
   
-  q <- quartiles(x)
-  lower.bound <- q$First - (1.5 * q$Interquartile_Range)
-  upper.bound <- q$Third + (1.5 * q$Interquartile_Range)
-  
-  for(i in 1:length(x)){
-    if(x[i] > upper.bound){
-        bool[i] <- TRUE
-      }
-    else if(x[i] < lower.bound){
-        bool[i] <- TRUE
-    }
-    else{
-      bool[i] <- FALSE
-    }
-  }
-  return(bool)
+  return(sum(calculated.output == results) == 12)
+    
 }
-test.tukey.outlier(tukey.outlier)
+test.tukey.outlier()
 ```
 
 ## Problem 6
@@ -121,39 +109,32 @@ The only data value that should be an outlier in -x is the eleventh term (-28.7)
 ## Problem 7
 
 ```{r}
-#' Compares the outliers of a data set to its actual outliers 
+#' Tests the outliers by comparing the outliers of a data set to its actual outliers 
 #' 
-#' @param FUN the function used to compute outliers with tukey.outliers as its default value 
+#' @param FUN the function used to compute outliers; with tukey.outliers as its default value 
 #'
 #' @return Returns a Boolean vector with two elements, one for x and one for -x 
 
 test.tukey.outlier <- function(FUN= tukey.outlier){
-  calculated.output <- tukey.outlier(x)
-  negative.output <- tukey.outlier(-x) # new modification to the function from problem 5 
+  results = c(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE)
+  x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) 
+  
+  calculated.output <- FUN(x)
+  negative.output <- FUN(-x) # new modification to the function from problem 5 
   return <- vector(length=2)
   
-  if(all((calculated.output == FUN) == TRUE)){
-    return[1]=TRUE    
-  }
-  else{
-    return[1]=FALSE
-  }
+  return[1] <- (sum(calculated.output == results) == 12)
   
-  if(all((negative.output == FUN) == TRUE)){
-    return[2]=TRUE    
-  }
-  else{
-    return[2]=FALSE
-  }
+  return[2] <- (sum(negative.output == results) == 12)
+  
   return(return)
 }
-
 ```
 
 ## Problem 8
 
 ```{r}
-test.tukey.outlier(tukey.outlier(x))
+test.tukey.outlier()
 ```
 
 ## Problem 9
@@ -168,38 +149,27 @@ The only data value that should be an outlier in 0.1*x is the eleventh term (2.8
 ## Problem 10
 
 ```{r}
-#' Compares the outliers of a data set to its actual outliers 
+#' Tests the outliers by comparing the outliers of a data set to its actual outliers 
 #' 
-#' @param FUN the function used to compute outliers with tukey.outliers as its default value 
+#' @param FUN the function used to compute outliers, with tukey.outliers as its default value 
 #'
 #' @return Returns a Boolean vector with three elements, one for x, one for -x, and one for 0.1*x 
 
 test.tukey.outlier <- function(FUN= tukey.outlier){
-  calculated.output <- tukey.outlier(x)
-  negative.output <- tukey.outlier(-x)
-  scaled.down.output <- tukey.outlier(0.1*x) # new modification to the function from problem 7 
+  results = c(FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE)
+  x <- c(2.2, 7.8, -4.4, 0.0, -1.2, 3.9, 4.9, -5.7, -7.9, -4.9, 28.7, 4.9) 
+  
+  calculated.output <- FUN(x)
+  negative.output <- FUN(-x)
+  scaled.down.output <- FUN(0.1*x) # new modification to the function from problem 7 
+  
   return <- vector(length=3)
   
-  if(all((calculated.output == FUN) == TRUE)){
-    return[1]=TRUE    
-  }
-  else{
-    return[1]=FALSE
-  }
+  return[1] <- (sum(calculated.output == results) == 12)
   
-  if(all((negative.output == FUN) == TRUE)){
-    return[2]=TRUE    
-  }
-  else{
-    return[2]=FALSE
-  }
+  return[2] <- (sum(negative.output == results) == 12)
   
-  if(all((scaled.down.output == FUN) == TRUE)){
-    return[3]=TRUE    
-  }
-  else{
-    return[3]=FALSE
-  }
+  return[3] <- (sum(scaled.down.output == results) == 12)
   
   return(return)
 }
@@ -208,21 +178,7 @@ test.tukey.outlier <- function(FUN= tukey.outlier){
 ## Problem 11
 
 ```{r}
-test.tukey.outlier(tukey.outlier(x))
+test.tukey.outlier()
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
